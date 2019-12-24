@@ -247,7 +247,7 @@ parens :: Parser a -> Parser a
 parens = between (sym "(") (sym ")")
 ```
 
-<a name="BoolP"></a>
+<a name="BoolParser"></a>
 ### 3.3. Boolean Parser
 
 In this section the last part of the Boolean Parser will be explained.
