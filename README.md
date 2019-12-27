@@ -41,7 +41,7 @@ To end the Programm use Ctrl + d.
 <a name="intro"></a>
 ## 1. Introduction
 
-This document is about a project for the lecture `concepts of programming languages` at the Technische Hochschule Rosenheim.
+This document is about a project for the lecture "concepts of programming languages" at the Rosenheim University of Applied Sciences.
 In this document the programming languages Haskell and Golang are compared. To do this a boolean parser example is used.
 
 <a name="HaskellOver"></a>
@@ -69,7 +69,7 @@ All Haskell expressions that, once they are assigned to a name, they cannot chan
 
 #### Statically typed and Type inference
 
-The type of every expression is determined at compile time. The strong, static type system is one of the things that makes Haskell unique. The compiler can usually infer the types of expression. So in the following expamle the compiler can determine the type of every expression.
+The type of every expression is determined at compile time. Haskell has a strong, static type system. The compiler can usually infer the types of expression. So in the following expamle the compiler can determine the type of every expression.
 
 ```Haskell
 func baseAmt str = replicate rptAmt newStr
@@ -80,7 +80,7 @@ func baseAmt str = replicate rptAmt newStr
     newStr = “Hello “ ++ str
 ```
 
-In this expamle no types are assigned, but the compiler knows that `baseAmt` is an integer and `str` is a string. Also the type of `rptAmt` is known in this example because all if statments must have an else brunch and the result of both brunches must have the same type.
+In this expamle no types are assigned, but the compiler knows that `baseAmt` is an integer and `str` is a string. Also the type of `rptAmt` is known in this example because all `if` statments must have an else brunch and the result of both brunches must have the same type.
 
 Most of the time it is possible to avoid type signatures, but in generally a signature is given for the top level functions. Type Driven Development is also possible in Haskell and it is not unreasonable to write out the types of functions before implementing them. So here is the example comleted by the signature:
 
@@ -111,7 +111,7 @@ The function `square` cannot mutate its arguments and there are no side effects.
 
 #### Lazy
 
-Lazy evaluation describes a method to evaluate a Haskell program. The evaluation of expression take place when their results are needed by other computations. This mean the evaluation is deferred and the expressions are not evaluated when they are bound to variables. Arguments are evaluated when their values are actually used and the functions itself do not evaluate their arguments. You can use this feature of Haskell by defining a control structur.
+Lazy evaluation describes a method to evaluate a Haskell program. The evaluation of expression take place when their results are needed by other computations. This means the evaluation is deferred and the expressions are not evaluated when they are bound to variables. Arguments are evaluated when their values are actually used and the functions itself do not evaluate their arguments. You can use this feature of Haskell by defining a control structur.
 
 ```Haskell
 when p m = if p then m else return ()
@@ -146,7 +146,7 @@ data Node = Or Node Node
   deriving (Show, Eq, Ord)
 ```
 
-As you can see the type `Node` has four manifestations. It could be an `And` or an `Or`. Both of these manifestions consists of a tuple of Nodes. It is also possible that the type is a `Not`, which consists of one Node. Finally the last expression, that `Node` could be is `Var` of the type string. 
+As you can see the type `Node` has four manifestations. It could be an `And` or an `Or`. Both of these manifestions consists of a tuple of Nodes. It is also possible that the type `Node` is a `Not`, which consists of one Node. Finally the last expression, that `Node` could be a `Var` of the type string. 
 
 The second part of the abstract syntax tree is the evaluation function. On the basis of the above shown data structure `Node` the following `eval` function is written.
 
@@ -169,6 +169,8 @@ varTF "True" = True
 varTF "true" = True
 varTF x = False
 ```
+
+Based on this function you can see which expressions you can use for the boolean parser.
 
 <a name="Library"></a>
 ### 3.2. Library
@@ -220,8 +222,15 @@ binary  name f = InfixL  (f <$ sym name)
 
 As you can see the parser handles prefix signs. To get the final result of the type `Node` we run `sym name` and return function to apply to terms in order. For `binary` the code is similar and works analogously to the `prefix` function.
 
+`sym` is a parser that matches given text using `string` internally and then similarly picks up all trailing white space.
+
+```Haskell
+sym :: Text -> Parser Text
+sym = L.symbol sc
+```
+
 To build the expression parser `pExpr` the operator from the above shown `operatorTable` are used.
-The `makeExprParser` helper is here usefull. 
+The `makeExprParser` helper of the mentioned module is here usefull. 
 
 ```Haskell
 pExpr :: Parser Node
@@ -303,13 +312,13 @@ Haskell also own this feature. Concrete types are deduced by the type system whe
 
 #### First class functions
 
-Through the examply it is clear, that Haskells function are first class functions.
+Through the example it is clear, that Haskell functions are first class functions.
 
 These property own both, Haskell and Golang. 
 
 #### Purely functional
 
-Golang is a multi paradim programming language and is not a functional language. Golang have features that enables to apply functional priciples. 
+Golang is a multi paradim programming language and is not a purely functional language. Golang have features that enables to apply functional priciples. 
 
 Here is the biggest difference to Haskell. Haskell is a purely functional language.
 
@@ -325,7 +334,7 @@ In advance it is difficult to compare the implemented boolean parser because for
 
 The implementation of the boolean parser in Haskell differs in some points from the implementation in Golang.
 
-Because in Haskell the `Control.Monad.Combinators.Expr` module is used, we can implement the Boolean Parser easly. With the `binary` and `prefix` function the `operatorTable` can be written while in Golang the functions to parse `And`,`Not` and `Or` are longer. The predefined function of Haskell are here helpfull. The grammar to parse expressions can be easly implemented through these functions.
+Because in Haskell the `Control.Monad.Combinators.Expr` module is used, we can implement the Boolean Parser easly. With the `binary` and `prefix` function the `operatorTable` can be written while in Golang the functions to parse `And`,`Not` and `Or` are longer and to parse the grammar the functions are defined separately. The predefined function of Haskell are here helpfull. The grammar to parse expressions can be easly implemented through these functions.
 
 Similarities can be found for example by parsing parentheses.
 
@@ -344,7 +353,7 @@ parens :: Parser a -> Parser a
 parens = between (sym "(") (sym ")")
 ```
 
-The `parens` function then is used in the above shown `pTerm` function. So both the boolean parser in Golang and the one in Haskell parse the same following grammar:
+Both the boolean parser in Golang and in Haskell parse the same following grammar:
 
 ```
 Atom := Variable
@@ -356,9 +365,9 @@ Atom := Variable
 
 In conclusion the programming languages Haskell and Golang differ in many points.
 
-To mention here is, that Haskell is a purely funtional language while Golang only apply functional priciples. From this many differences can be derived. Golang support also other programming styles.
+To mention here is, that Haskell is a purely funtional language while Golang only apply functional priciples. From this many differences can be derived. Golang supports also other programming styles.
 
-Only in some points the languages are similar.
+Only in some points the languages are similar. The here elaborated similarities are the type inferece and the first class functions.
 
 <a name="Ref"></a>
 ## 6. References
