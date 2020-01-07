@@ -379,7 +379,7 @@ Only in some points the languages are similar. The here elaborated similarities 
 * [Haskell concurreny](https://wiki.haskell.org/Concurrency)
 * [Lacy evaluation](https://wiki.haskell.org/Lazy_evaluation)
 * [Text.Megaparsec documentation](https://hackage.haskell.org/package/megaparsec-8.0.0/docs/Text-Megaparsec.html)
-* [Control.Monad.Combinators.Expr module](https://markkarpov.com/tutorial/megaparsec.html)
+* [Megaparsec tutorial](https://markkarpov.com/tutorial/megaparsec.html)
 * [Haskell module documentation](http://hackage.haskell.org/package/parser-combinators-1.2.1/docs/Control-Monad-Combinators-Expr.html)
 * [Haskell immutability](https://mmhaskell.com/blog/2017/1/9/immutability-is-awesome)
 * [Golang type inference](https://tour.golang.org/basics/14)
