@@ -387,3 +387,4 @@ Only in some points the languages are similar. The here elaborated similarities 
 * [Haskell first class functions](https://freecontent.manning.com/learning-haskell-first-class-functions/)
 * [Functional Go](https://medium.com/@geisonfgfg/functional-go-bc116f4c96a4)
 * [Boolean Parser Go](https://github.com/jweigend/concepts-of-programming-languages)
+* [Haskell Parser Example] (http://dev.stephendiehl.com/fun/002_parsers.html)
