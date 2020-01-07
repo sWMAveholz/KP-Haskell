@@ -295,7 +295,7 @@ Golang also implements functional programming paradigms. In this section they wi
 
 #### Immutability 
 
-In Golang the immutability is not the same as in Haskell. 
+In Golang immutability is not enforced. So is not the same as in Haskell. 
 
 In Haskell expressions are immutable. After they are evaluated expressions cannot change anymore. This makes refactoring easy. Most data structures provide methods creating a copy of the old object.
 
