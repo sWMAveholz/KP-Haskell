@@ -100,7 +100,7 @@ In Haskell functions are not different than any other data used in a program. Th
 
 #### Purely functional
 
-All functions you can write in Haskell is a funtion in the mathematical sense. Pure means that Haskell prohibit side effects. It is not possible to mutate local or global variables and access state like time or random numbers. Haskell works only with expressions and there are no statements or instructions. Have a look at the following example:
+All functions you can write in Haskell is a function in the mathematical sense. Pure means that Haskell prohibit side effects. It is not possible to mutate local or global variables and access state like time or random numbers. Haskell works only with expressions and there are no statements or instructions. Have a look at the following example:
 
 ```Haskell
 square :: Int -> Int
@@ -366,7 +366,7 @@ Atom := Variable
 
 In conclusion the programming languages Haskell and Golang differ in many points.
 
-To mention here is, that Haskell is a purely funtional language while Golang only apply functional priciples. From this many differences can be derived. Golang supports also other programming styles.
+To mention here is, that Haskell is a purely functional language while Golang only apply functional priciples. From this many differences can be derived. Golang supports also other programming styles.
 
 Only in some points the languages are similar. The here elaborated similarities are the type inferece and the first class functions.
 
