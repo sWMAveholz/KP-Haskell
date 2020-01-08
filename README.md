@@ -191,7 +191,8 @@ pVariable = Var <$>
   ((:) <$> letterChar <*> many alphaNumChar <?> "variable")
 ```
 
-#### Module
+<a name="Module"></a>
+#### 3.3. Module
 
 The `Control.Monad.Combinators.Expr` module is used in the boolean parser example.
 
@@ -257,7 +258,7 @@ parens = between (sym "(") (sym ")")
 ```
 
 <a name="BoolParser"></a>
-### 3.3. Boolean Parser
+### 3.4. Boolean Parser
 
 In this section the last part of the Boolean Parser will be explained.
 
