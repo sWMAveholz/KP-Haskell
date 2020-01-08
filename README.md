@@ -192,7 +192,7 @@ pVariable = Var <$>
 ```
 
 <a name="Module"></a>
-#### 3.3. Module
+### 3.3. Module
 
 The `Control.Monad.Combinators.Expr` module is used in the boolean parser example.
 
