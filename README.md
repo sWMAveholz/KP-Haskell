@@ -209,7 +209,7 @@ operatorTable =
   ]
 ```
 
-An operator is either an unary prefix or a binary infix. The `operatorTable` is a nested list. It is a list of the operators.
+An operator is either an unary prefix or a binary infix. The `operatorTable` is a nested list of the operators.
 
 `prefix` and `binary` are functions and work also with the `Operator` data type. 
 
